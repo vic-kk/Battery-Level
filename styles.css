@@ -1,28 +1,26 @@
 html,body {
   margin: 0;
   padding: 0;
-  width: 100vw;
-  height: 100vh;
   overflow: hidden;
   background-color: black;
 }
-#bat {
+#battery {
   width: 100vw;
   height: 100vh;
   margin: 0 auto;
   overflow: hidden;
-  position: absolute;
+  position: relative;
   left: 0;
   bottom: 0;
 }
-#level {
+#battery_bar {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   transition: all .5s;
 }
-#level:after {
+#battery_bar:after {
   background-color: inherit;
   content: ' ';
   width: 100%;
@@ -33,7 +31,7 @@ html,body {
   left: 0px;
   animation: float 2s infinite;
 }
-#perc {
+#charge_level {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -44,7 +42,7 @@ html,body {
   transition: all .5s;
   color: white;
 }
-#charg {
+#charging_status {
   text-align: center;
   font-weight: bolder;
   font-size: 10vw;
@@ -56,7 +54,7 @@ html,body {
   left: 0;
   width: 100%;
 }
-#rem {
+#remaining_time {
   position: absolute;
   top: 10%;
   left: 3%;
