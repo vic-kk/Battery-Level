@@ -62,10 +62,10 @@ html,body {
   transition: all .5s;
 }
 #charging_status {
-  position: absolute;
+  /* position: absolute;
   left: 0;
-  bottom: 10%;
-  width: 100%;
+  bottom: 30px;
+  width: 100%; */
   font-size: 10vw;
   font-weight: bolder;
   text-align: center;
