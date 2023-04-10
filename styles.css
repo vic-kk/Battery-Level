@@ -5,69 +5,77 @@ html,body {
   background-color: black;
 }
 #battery {
+  position: relative;
   width: 100vw;
   height: 100vh;
-  margin: 0 auto;
-  overflow: hidden;
-  position: relative;
-  left: 0;
-  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: sans-serif;
+}
+#battery[data-charging="false"] #battery_bar {
+  background-color: #ff6161;
+}
+#battery[data-charging="false"] #charge_level,
+#battery[data-charging="false"] #charging_status {
+  textShadow: #ff0000 0px 0px 50px;
+}
+#battery[data-charging="true"] #battery_bar {
+  background-color: lightgreen;
+}
+#battery[data-charging="true"] #charge_level,
+#battery[data-charging="true"] #charging_status {
+  textShadow: #029200 0px 0px 50px;
 }
 #battery_bar {
   position: absolute;
   bottom: 0;
   left: 0;
+  height: 70%;
   width: 100%;
   transition: all .5s;
 }
+#battery_bar:before,
 #battery_bar:after {
-  background-color: inherit;
   content: ' ';
   width: 100%;
-  height: 30px;
-  border-radius: 50%;
+  height: 10px;
   position: absolute;
-  top: -10px;
+  top: 0px;
   left: 0px;
-  animation: float 2s infinite;
+  transition: inherit;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('./img/wave.svg');
+  animation: float 10s infinite ease-in-out;
+}
+#battery_bar:after {
+  height: 15px;
+  animation-delay: 1.5s;
 }
 #charge_level {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  font-weight: bolder;
   font-size: 20vw;
-  font-family: sans-serif;
+  font-weight: bolder;
+  z-index: 1;
   transition: all .5s;
-  color: white;
 }
 #charging_status {
-  text-align: center;
-  font-weight: bolder;
-  font-size: 10vw;
-  font-family: sans-serif;
-  transition: all .5s;
-  color: white;
   position: absolute;
-  bottom: 20px;
   left: 0;
+  bottom: 3%;
   width: 100%;
-}
-#remaining_time {
-  position: absolute;
-  top: 10%;
-  left: 3%;
+  font-size: 10vw;
   font-weight: bolder;
-  font-size: 1vw;
-  font-family: sans-serif;
+  text-align: center;
   transition: all .5s;
 }
 @keyframes float {
   0%,100% {
-    transform: translateX(-25%);
+    transform: translateX(0%);
   }
   50% {
-    transform: translateX(25%);
+    transform: translateX(90%);
   }
 }
