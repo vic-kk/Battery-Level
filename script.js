@@ -2,10 +2,10 @@ navigator.getBattery().then((battery) => {
   battery.onchargingchange = () => chargingChangeHandler(battery);
   battery.onlevelchange = () => levelChangeHandler(battery);
   
-  // setInterval(() => {
-  //   chargingChangeHandler(battery);
-  //   levelChangeHandler(battery);
-  // }, 1000);
+  setInterval(() => {
+    chargingChangeHandler(battery);
+    levelChangeHandler(battery);
+  }, 1000);
 });
 
 const chargingChangeHandler = (battery) => {
