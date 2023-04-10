@@ -12,8 +12,10 @@ html,body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
   font-family: sans-serif;
+  font-weight: bolder;
+  font-size: 10vw;
+  color: white;
 }
 #battery[data-charging="false"] #battery_bar {
   background-color: #ff6161;
@@ -55,18 +57,13 @@ html,body {
   height: 15px;
   animation-delay: 1.5s;
 }
-#charge_level {
-  font-size: 20vw;
-  font-weight: bolder;
+#charge_level,
+#charging_status {
   z-index: 1;
   transition: all .5s;
 }
-#charging_status {
-  font-size: 10vw;
-  font-weight: bolder;
-  text-align: center;
-  z-index: 1;
-  transition: all .5s;
+#charge_level {
+  font-size: 2em;
 }
 @keyframes float {
   0%,100% {
