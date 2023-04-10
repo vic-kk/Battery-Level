@@ -62,13 +62,10 @@ html,body {
   transition: all .5s;
 }
 #charging_status {
-  /* position: absolute;
-  left: 0;
-  bottom: 30px;
-  width: 100%; */
   font-size: 10vw;
   font-weight: bolder;
   text-align: center;
+  z-index: 1;
   transition: all .5s;
 }
 @keyframes float {
