@@ -1,27 +1,44 @@
+const RootDiv = document.getElementById('battery');
+const VisualElements = {
+  'charge_bar': 'charge_bar',
+  'charge_level': 'charge_level',
+  'charging_status': 'charging_status',
+}
+
 navigator.getBattery().then((battery) => {
+  initialUpdate(battery);
   battery.onchargingchange = () => chargingChangeHandler(battery);
   battery.onlevelchange = () => levelChangeHandler(battery);
-  
-  firstUpdate(battery);
 });
 
-const firstUpdate = (battery) => {
+const initialUpdate = (battery) => {
+  generateVisualElements();
   chargingChangeHandler(battery);
   levelChangeHandler(battery);
 }
 
-const chargingChangeHandler = (battery) => {
-  if (!battery) return;
-  const { charging: isCharging } = battery;
-  const text = isCharging ? 'charging' : 'discharging';
-  document.getElementById('charging_status').innerHTML = text;
-  document.getElementById('battery').setAttribute('data-charging', isCharging)
+const generateVisualElements = () => {
+  for (const elementName in VisualElements) {
+    const newElement = document.createElement('div');
+    newElement.id = elementName;
+    RootDiv.appendChild(newElement);
+  };
 }
 
-const levelChangeHandler = (battery) => {
+const getVisualElement = (elementName) => {
+  if (!VisualElements[elementName]) throw 'Element not present in VisualElements';
+  return document.getElementById(VisualElements[elementName]);
+}
+
+const chargingChangeHandler = ({ charging: isCharging } = battery) => {
   if (!battery) return;
-  const { level } = battery;
+  RootDiv.setAttribute('data-charging', isCharging);
+  getVisualElement('charging_status').innerHTML = `${isCharging ? '' : 'dis'}charging`;
+}
+
+const levelChangeHandler = ({ level } = battery) => {
+  if (!battery) return;
   const percantage = level * 100;
-  document.getElementById('charge_level').innerHTML = `${percantage}%`;
-  document.getElementById('charge_bar').style.height = `${percantage}%`;
+  getVisualElement('charge_bar').style.height = `${percantage}%`;
+  getVisualElement('charge_level').innerHTML = `${percantage}%`;
 }
