@@ -20,8 +20,8 @@ const chargingChangeHandler = (battery) => {
 
 const levelChangeHandler = (battery) => {
   if (!battery) return;
-  const { level: chargeLevel } = battery;
-  const { offsetHeight: fullHeigth } = document.getElementById('battery');
-  document.getElementById('charge_level').innerHTML = `${Math.round(chargeLevel * 100)}%`;
-  document.getElementById('battery_bar').style.height = `${fullHeigth * chargeLevel}px`;
+  const { level } = battery;
+  const percantage = level * 100;
+  document.getElementById('charge_level').innerHTML = `${percantage}%`;
+  document.getElementById('charge_bar').style.height = `${percantage}%`;
 }

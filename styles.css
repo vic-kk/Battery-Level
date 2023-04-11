@@ -14,24 +14,24 @@ html,body {
   justify-content: center;
   font-family: sans-serif;
   font-weight: bolder;
-  font-size: 12vmin;
+  font-size: 10vmin;
   color: white;
 }
-#battery[data-charging="false"] #battery_bar {
+#battery[data-charging="false"] #charge_bar {
   background-color: #ff6161;
 }
 #battery[data-charging="false"] #charge_level,
 #battery[data-charging="false"] #charging_status {
   textShadow: #ff0000 0px 0px 50px;
 }
-#battery[data-charging="true"] #battery_bar {
+#battery[data-charging="true"] #charge_bar {
   background-color: lightgreen;
 }
 #battery[data-charging="true"] #charge_level,
 #battery[data-charging="true"] #charging_status {
   textShadow: #029200 0px 0px 50px;
 }
-#battery_bar {
+#charge_bar {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -39,8 +39,8 @@ html,body {
   width: 100%;
   transition: all .5s;
 }
-#battery_bar:before,
-#battery_bar:after {
+#charge_bar:before,
+#charge_bar:after {
   content: ' ';
   width: 100%;
   height: 10px;
@@ -53,7 +53,7 @@ html,body {
   background-image: url('./img/wave.svg');
   animation: float 10s infinite ease-in-out;
 }
-#battery_bar:after {
+#charge_bar:after {
   height: 15px;
   animation-delay: 1.5s;
 }
