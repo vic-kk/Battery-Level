@@ -6,7 +6,7 @@ class BatteryInfo {
     'charging_status': null,
   };
   constructor(divId) {
-    if (!divId) throw `id of parent DOMElement is needed`;
+    if (!divId) throw 'id of parent DOMElement is needed';
     const rootDiv = document.getElementById(divId);
     if (!rootDiv) throw `DIV#${divId} is not exist in DOM`;
     this._rootDiv = rootDiv;
