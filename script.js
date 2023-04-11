@@ -1,9 +1,9 @@
 class BatteryInfo {
   _rootDiv;
   _infoElements = {
-    'charge_bar': 'charge_bar',
-    'charge_level': 'charge_level',
-    'charging_status': 'charging_status',
+    'charge_bar': null,
+    'charge_level': null,
+    'charging_status': null,
   };
   constructor(divId) {
     if (!divId) throw `id of parent DOMElement is needed`;
@@ -15,12 +15,13 @@ class BatteryInfo {
     for (const elementName in this._infoElements) {
       const newElement = document.createElement('div');
       newElement.id = elementName;
+      this._infoElements[elementName] = newElement;
       this._rootDiv.appendChild(newElement);
     };
   }
   _getInfoElement(elementName) {
     if (!this._infoElements[elementName]) throw 'Element not present';
-    return document.getElementById(this._infoElements[elementName]);
+    return this._infoElements[elementName];
   }
   create(battery) {
     this._generateVisualElements();
