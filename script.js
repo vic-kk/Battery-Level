@@ -1,15 +1,20 @@
 class BatteryInfo {
-  _rootDiv;
-  _infoElements = {
-    'charge_bar': null,
-    'charge_level': null,
-    'charging_status': null,
-  };
-  constructor(divId) {
-    if (!divId) throw `id of parent DOMElement is needed`;
-    const rootDiv = document.getElementById(divId);
-    if (!rootDiv) throw `DIV#${divId} is not exist in DOM`;
+  constructor(div_id) {
+    if (!div_id) throw `id of parent DOMElement is needed`;
+    const rootDiv = document.getElementById(div_id);
+    if (!rootDiv) throw `DIV#${div_id} is not exist in DOM`;
     this._rootDiv = rootDiv;
+    this._infoElements = {
+      'charge_bar': null,
+      'charge_level': null,
+      'charging_status': null,
+    };
+  }
+  get rootDiv() {
+    return this._rootDiv;
+  }
+  get infoElements() {
+    return this._infoElements;
   }
   _generateVisualElements() {
     for (const elementName in this._infoElements) {
@@ -44,6 +49,7 @@ class BatteryInfo {
 navigator.getBattery().then((battery) => {
   const batteryInfo = new BatteryInfo('battery');
   batteryInfo.create(battery);
+  debugger;
   battery.onchargingchange = () => batteryInfo.chargingChangeHandler(battery);
   battery.onlevelchange = () => batteryInfo.levelChangeHandler(battery);
 });
