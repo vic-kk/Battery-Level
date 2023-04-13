@@ -17,6 +17,7 @@ class BatteryInfo {
     return this._infoElements;
   }
   _generateVisualElements() {
+    if (this._rootDiv.childElementCount) this._rootDiv.innerHTML = '';
     for (const elementName in this._infoElements) {
       const newElement = document.createElement('div');
       newElement.id = elementName;
