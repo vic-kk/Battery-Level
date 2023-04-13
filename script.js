@@ -49,7 +49,6 @@ class BatteryInfo {
 navigator.getBattery().then((battery) => {
   const batteryInfo = new BatteryInfo('battery');
   batteryInfo.create(battery);
-  debugger;
   battery.onchargingchange = () => batteryInfo.chargingChangeHandler(battery);
   battery.onlevelchange = () => batteryInfo.levelChangeHandler(battery);
 });
