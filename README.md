@@ -1,5 +1,5 @@
 # Battery-Level-Indicator
-_Copy from [personal site](https://sub.victorkarasev.ru/_sandbox/battery_level/)_
+_Copy from [personal site](https://victorkarasev.ru/)_
 
 **Battery Level Indicator in VanillaJS (webAPI)**
 
