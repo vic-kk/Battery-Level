@@ -4,7 +4,7 @@ _Copy from [personal site](https://sub.victorkarasev.ru/_sandbox/battery_level/)
 **Battery Level Indicator in VanillaJS (webAPI)**
 
 
-tip: scan **QR code** to see Github Page on phone easily !)
+tip: scan **QR code** to see Github Page on device easily !)
 
 <img
   src="https://api.qrcode-monkey.com/tmp/0c4ef0881d9e55eb538bcee875456fb9.svg?1696808182123"
