@@ -7,7 +7,7 @@ _Copy from [personal site](https://sub.victorkarasev.ru/_sandbox/battery_level/)
 tip: scan **QR code** to see Github Page on phone easily !)
 
 <img
-  src="https://api.qrcode-monkey.com/tmp/0a1989b6fb5489c3d2291ef026610f66.svg?1680978256775"
+  src="https://api.qrcode-monkey.com/tmp/0c4ef0881d9e55eb538bcee875456fb9.svg?1696808182123"
   alt="gihub_qr_link"
   title="scan QR code to see Github Page on phone easily"
   width="400"
